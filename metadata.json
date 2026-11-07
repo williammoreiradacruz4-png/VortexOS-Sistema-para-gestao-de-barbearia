@@ -1,0 +1,6 @@
+{
+  "name": "Super Admin SaaS Multi-Tenant",
+  "description": "Plataforma SaaS Multi-Tenant para Barbearias contendo Painel Super Admin, Painel Administrativo do Estabelecimento e Área do Cliente com Cartão Fidelidade e Agendamento Online.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

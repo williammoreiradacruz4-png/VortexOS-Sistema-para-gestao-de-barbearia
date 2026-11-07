@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Barber Pro - Gestão & Fidelidade para Barbearias</title>
+    <meta name="description" content="Plataforma SaaS para Barbearias contendo Painel Super Admin, Painel Administrativo do Estabelecimento e Área do Cliente com Cartão Fidelidade e Agendamento Online." />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="BarberPro" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="Barber Pro - Gestão & Fidelidade" />
+    <meta property="og:description" content="Plataforma SaaS para Barbearias contendo Painel Super Admin, Painel Administrativo do Estabelecimento e Área do Cliente com Cartão Fidelidade e Agendamento Online." />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Reset básico */
+      body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+      }
+
+      /* Container da Splash */
+      #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #121212;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999; /* Garante que fica por cima de tudo */
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+
+      /* Conteúdo centralizado */
+      .splash-content {
+        text-align: center;
+      }
+
+      .logo-placeholder {
+        font-size: 80px;
+        animation: pulse 2s infinite;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo-placeholder img {
+        width: 96px;
+        height: 96px;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+      }
+
+      #splash-screen h1, .splash-content h1 {
+        font-size: 2.5rem;
+        margin-top: 15px;
+        letter-spacing: 2px;
+        color: #d4af37; /* Cor dourada/bronze premium */
+      }
+
+      #splash-screen p, .splash-content p {
+        color: #888;
+        font-size: 1rem;
+        margin: 6px 0 0 0;
+      }
+
+      /* Spinner de Carregamento */
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(212, 175, 55, 0.1);
+        border-left-color: #d4af37;
+        border-radius: 50%;
+        margin: 20px auto 0;
+        animation: spin 1s linear infinite;
+      }
+
+      /* Classes de transição e ocultação */
+      .fade-out {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+
+      /* Conteúdo Principal */
+      #main-content {
+        min-height: 100vh;
+        width: 100%;
+      }
+
+      /* Animações */
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-gray-100 antialiased">
+    <!-- Tela de Login/Cadastro / App Principal com SplashScreen React -->
+    <div id="main-content">
+      <div id="root"></div>
+    </div>
+
+    <script>
+      // Permite remoção instantânea quando o componente React SplashScreen assume
+      window.__dismissSplash = function() {
+        var splash = document.getElementById('splash-screen');
+        if (splash) {
+          splash.remove();
+        }
+      };
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
